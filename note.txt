@@ -49,4 +49,26 @@ tasks.json
       }
     ]
   }
-  
+
+1. Phạm vi biến: So sánh tổng quát
+Loại biến                      | Phạm vi sử dụng              | Thời gian tồn tại                 | Khai báo ở đâu
+Biến toàn cục(Global Variable) | Toàn bộ chương trình         | Từ lúc bắt đầu đến khi kết thúc   | Ngoài mọi hàm
+Biến cục bộ(Local Variable)    | Trong hàm hoặc khối          | Khi hàm bắt đầu, mất khi kết thúc | Trong hàm
+Biến động(Dynamic Variable)    | Bất kỳ đâu thông qua con trỏ | Tùy mình quản lý (phải delete)    | Dùng new và con trỏ
+
+2. Các kiểu dữ liệu
+C++ cung cấp nhiều kiểu dữ liệu khác nhau:
+
+    int: Kiểu số nguyên (ví dụ: int a = 5;)
+    float: Kiểu số thực với độ chính xác đơn (ví dụ: float b = 5.5;)
+    double: Kiểu số thực với độ chính xác gấp đôi (ví dụ: double c = 5.55;)
+    char: Kiểu ký tự (ví dụ: char d = 'A';)
+    bool: Kiểu logic chỉ có hai giá trị true hoặc false (ví dụ: bool e = true;)
+
+3. Toán tử
+Toán tử là các ký hiệu được sử dụng để thực hiện các phép toán. Có các loại toán tử chính:
+
+    Toán tử số học: +, -, *, /, %
+    Toán tử so sánh: ==, !=, <, >, <=, >=
+    Toán tử logic: &&, ||, !
+    Toán tử gán: =, +=, -=, *=, /=, %=
