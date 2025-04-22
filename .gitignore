@@ -1,0 +1,36 @@
+# Ignore build files
+*.exe
+*.obj
+*.o
+*.out
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+
+# Ignore debugging files
+*.pdb
+*.idb
+*.ipdb
+*.tlog
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore temporary files
+*.tmp
+*.log
+*.bak
+*.swp
+*.swo
+
+# Ignore compiled files
+*.class
+*.pyc
+*.pyo
+*.cache
+
+# Ignore system files
+.DS_Store
+Thumbs.db
