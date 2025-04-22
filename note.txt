@@ -1,0 +1,52 @@
+launch.json
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run hello.cpp",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/hello.exe",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "miDebuggerPath": "gdb",
+        "preLaunchTask": "build-hello"
+      }
+    ]
+}
+
+settings.json
+{
+    "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/g++.exe",
+    "files.associations": {
+        "*.c": "c",
+        "iostream": "cpp"
+    }
+}
+
+tasks.json
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build-hello",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+          "hello.cpp",
+          "-o",
+          "hello.exe"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$gcc"]
+      }
+    ]
+  }
+  
