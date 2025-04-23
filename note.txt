@@ -72,3 +72,19 @@ Toán tử là các ký hiệu được sử dụng để thực hiện các ph�
     Toán tử so sánh: ==, !=, <, >, <=, >=
     Toán tử logic: &&, ||, !
     Toán tử gán: =, +=, -=, *=, /=, %=
+
+- Kế thừa (Inheritance):cho phép một lớp con (class con) thừa hưởng các thuộc tính và phương thức (hàm) từ một lớp cha (class cha).
+Lợi ích của kế thừa:
+Tái sử dụng mã (code reuse)
+
+Dễ mở rộng và bảo trì
+
+Giúp xây dựng hệ thống đa hình và phân cấp rõ ràng
+
+- Đa hình là khả năng cho phép một hàm hoặc đối tượng có nhiều hành vi khác nhau, tùy thuộc vào kiểu dữ liệu cụ thể hoặc lớp con đang sử dụng.
+- Có 2 loại đa hình trong C++
++) Đa hình biên dịch ( Nạp chồng hàm (Function Overloading) )
++) Đa hình lúc chạy ( Dùng virtual và override ) 
+Loại đa hình | Cách đạt được            | Khi xảy ra
+Compile-time | Nạp chồng hàm (overload) | Khi biên dịch
+Run-time     | virtual + override       | Khi chạy chương trình
