@@ -88,3 +88,107 @@ Giúp xây dựng hệ thống đa hình và phân cấp rõ ràng
 Loại đa hình | Cách đạt được            | Khi xảy ra
 Compile-time | Nạp chồng hàm (overload) | Khi biên dịch
 Run-time     | virtual + override       | Khi chạy chương trình
+
+
+Bài tập 1: Trò chơi đoán số
+
+: Tạo một trò chơi đơn giản nơi máy tính sinh ra một số ngẫu nhiên từ 1 đến 100, và người chơi phải đoán số đó. Máy tính sẽ đưa ra gợi ý như "Quá cao" hoặc "Quá thấp" để hướng dẫn người chơi.
+
+:
+
+
+    Sử dụng hàm rand() để tạo số ngẫu nhiên.
+    Cho phép người chơi nhập số đoán qua bàn phím.
+    Đếm số lần đoán và hiển thị khi người chơi đoán đúng.
+    Thêm tùy chọn chơi lại (ví dụ: nhập 'y' để chơi tiếp, 'n' để thoát).
+    Sử dụng vòng lặp và câu lệnh điều kiện.
+
+
+
+: Cơ bản
+
+: Nhập/xuất, vòng lặp, điều kiện, hàm, xử lý ngẫu nhiên.
+
+Bài tập 2: Mô phỏng chuyển động nhân vật 2D
+
+: Viết chương trình mô phỏng một nhân vật di chuyển trên lưới 2D (ma trận 10x10). Người chơi điều khiển nhân vật bằng các phím (ví dụ: W để lên, S để xuống, A để sang trái, D để sang phải). Hiển thị lưới với vị trí của nhân vật sau mỗi lần di chuyển.
+
+:
+
+
+    Sử dụng mảng 2D để biểu diễn lưới.
+    Nhân vật được biểu diễn bằng ký tự (ví dụ: '@'), các ô trống là '.'.
+    Kiểm tra giới hạn để nhân vật không di chuyển ra ngoài lưới.
+    Hiển thị lưới sau mỗi lần người chơi nhập lệnh di chuyển.
+    Thêm một ô "kết thúc" (ví dụ: 'E') mà khi nhân vật chạm vào, trò chơi thông báo chiến thắng và kết thúc.
+
+
+
+: Trung bình
+
+: Mảng 2D, nhập/xuất, vòng lặp, điều kiện, quản lý trạng thái.
+
+Bài tập 3: Trò chơi bắn mục tiêu
+
+: Viết một trò chơi đơn giản nơi người chơi bắn các mục tiêu xuất hiện ngẫu nhiên trên màn hình (mô phỏng bằng tọa độ). Người chơi nhập tọa độ để bắn và nhận điểm nếu bắn trúng mục tiêu.
+
+:
+
+
+    Mục tiêu xuất hiện ngẫu nhiên trên lưới 5x5 (sử dụng tọa độ x, y).
+    Người chơi nhập tọa độ (x, y) để bắn.
+    Tính điểm: +10 điểm nếu bắn trúng, -5 điểm nếu bắn trượt.
+    Cho phép chơi 10 lượt, sau đó hiển thị tổng điểm.
+    Thêm thông báo khi bắn trúng/trượt và hiển thị vị trí mục tiêu sau mỗi lượt.
+
+
+
+: Trung bình
+
+: Tọa độ, ngẫu nhiên, vòng lặp, điều kiện, quản lý điểm số.
+
+Bài tập 4: Hệ thống quản lý máu và năng lượng của nhân vật
+
+: Tạo một hệ thống mô phỏng trạng thái của một nhân vật trong game, bao gồm máu (HP) và năng lượng (Energy). Người chơi có thể thực hiện các hành động như tấn công, phòng thủ, hoặc hồi phục, mỗi hành động ảnh hưởng đến HP và Energy.
+
+:
+
+
+    Sử dụng struct hoặc class để biểu diễn nhân vật với các thuộc tính: HP (máu), Energy (năng lượng), Name (tên).
+    Các hành động:
+
+    Tấn công: Giảm 20 Energy, gây sát thương ngẫu nhiên từ 10-20 cho kẻ thù (mô phỏng kẻ thù với 100 HP).
+    Phòng thủ: Giảm 10 Energy, giảm sát thương nhận vào một nửa trong lượt đó.
+    Hồi phục: Giảm 30 Energy, tăng 20 HP.
+
+
+
+Người chơi chọn hành động qua menu (1: Tấn công, 2: Phòng thủ, 3: Hồi phục, 4: Thoát).
+Kiểm tra điều kiện: HP hoặc Energy <= 0 thì không thể thực hiện hành động tương ứng.
+Hiển thị trạng thái của nhân vật và kẻ thù sau mỗi hành động.
+
+
+: Trung bình/Cao
+
+: Struct/Class, quản lý trạng thái, menu, điều kiện, ngẫu nhiên.
+
+Bài tập 5: Trò chơi xếp hình Tetris đơn giản (Console)
+
+: Viết một phiên bản Tetris đơn giản trên console, nơi các khối (tetromino) rơi từ trên xuống và người chơi điều khiển chúng. Khi hàng đầy, hàng đó sẽ bị xóa và người chơi được cộng điểm.
+
+:
+
+
+    Tạo ít nhất 2 loại tetromino (ví dụ: hình vuông và hình chữ L).
+    Sử dụng mảng 2D để biểu diễn bảng chơi (10x20).
+    Cho phép người chơi di chuyển trái/phải (A/D) và xoay khối (W).
+    Khối tự động rơi xuống sau mỗi giây (sử dụng hàm sleep hoặc vòng lặp để mô phỏng thời gian).
+    Khi hàng đầy, xóa hàng và cộng 100 điểm.
+    Kết thúc trò chơi khi khối chạm đỉnh bảng, hiển thị điểm cuối cùng.
+    (Tùy chọn) Thêm hiển thị khối tiếp theo sẽ xuất hiện.
+
+
+
+: Cao
+
+: Mảng 2D, quản lý thời gian, điều khiển nhân vật, logic game, xoay ma trận.
