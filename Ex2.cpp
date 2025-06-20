@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <cstdlib>
 #include <ctime>
+#include <windows.h> //
 using namespace std;
 
 /*
@@ -15,7 +16,10 @@ using namespace std;
 */
 int main()
 {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 11); // Màu chữ xanh nhạt
     cout << "Dùng phím W/A/S/D để di chuyển, ESC để thoát.\n\n";
+    SetConsoleTextAttribute(hConsole, 7); // Trả về màu chữ mặc định
     const int SIZE = 10;
     char grid[SIZE][SIZE];
 
@@ -63,7 +67,9 @@ int main()
     char move = _getch(); // Nhận phím từ người dùng
     if (move == 27)
     {
+        SetConsoleTextAttribute(hConsole, 10); // Màu chữ xanh lá
         cout << "\nBạn đã thoát trò chơi." << endl;
+        SetConsoleTextAttribute(hConsole, 7); // Trả về màu chữ mặc định
         break;
     }
     int newX = playerX, newY = playerY;
@@ -76,14 +82,18 @@ int main()
     } else if (move == 'd' || move == 'D') {
         newY++; // Di chuyển sang phải
     } else {
+        SetConsoleTextAttribute(hConsole, 12); // Màu chữ đỏ
         cout << "Phím không hợp lệ. Vui lòng nhập W/A/S/D hoặc ESC để thoát." << endl;
+        SetConsoleTextAttribute(hConsole, 7); // Trả về màu chữ mặc định
         continue; // Bỏ qua vòng lặp nếu phím không hợp lệ
     }
     if(newX >=0 && newX < SIZE && newY >= 0 && newY < SIZE)
     {
         if(grid[newX][newY] == 'E')
         {
+            SetConsoleTextAttribute(hConsole, 10); // Màu chữ xanh lá
             cout << "Chúc mừng! Bạn đã đến đích!" << endl;
+            SetConsoleTextAttribute(hConsole, 7); // Trả về màu chữ mặc định
             break; // Thoát vòng lặp nếu đến đích
         }
         else
@@ -93,6 +103,7 @@ int main()
             playerY = newY;
             grid[playerX][playerY] = '@'; // Đặt '@' vào vị trí mới
 
+            cout << "\033[2J\033[H";
             // In lại lưới
             for (int i = 0; i < SIZE; i++) {
                 for (int j = 0; j < SIZE; j++) {
