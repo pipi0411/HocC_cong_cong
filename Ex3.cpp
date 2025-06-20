@@ -16,10 +16,13 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
+#include <windows.h> // Để sử dụng Sleep
 
 using namespace std;
 
 int main() {
+    srand(time(0));
     const int SIZE = 5;
     int score = 0;
 
@@ -29,37 +32,60 @@ int main() {
         int targetY = rand() % SIZE;
 
         // Bước b: Hiện lưới (có thể ẩn mục tiêu)
-        cout << "Round " << round + 1 << ": Guess the target position (x y): ";
-        // cout << "  ";
-        // for (int j = 0; j < SIZE; j++) cout << j << " ";
-        // cout << endl;
-        // for (int i = 0; i < SIZE; i++) {
-        //     cout << i << " ";
-        //     for (int j = 0; j < SIZE; j++) {
-        //         if (i == targetX && j == targetY) {
-        //             cout << "O "; // Ẩn mục tiêu
-        //         } else {
-        //             cout << ". "; // Hiển thị ô trống
-        //         }
-        //     }
-        //     cout << endl;
-        // }
+        cout << "Round " << round + 1 << ": Guess the target position (x y): \n";
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                if (i == targetX && j == targetY)
+                {
+                    cout << "O "; // Ẩn mục tiêu
+                }
+                else
+                {
+                    cout << ". "; // Hiển thị ô trống
+                }
+            }
+            cout << endl;
+        }
+        Sleep(2000);
+
+        // Ghi đè lại bằng lưới trống (che đáp án)
+        cout << "\033[" << (SIZE+1) << "A"; // Di chuyển con trỏ lên lại vị trí đáp án (nếu terminal hỗ trợ)
+        cout << "                                        \n"; // Xóa dòng tiêu đề đáp án
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                cout << ". ";
+            }
+            cout << endl;
+        }
+
+        cout << "Round " << round + 1 << ": Guess the target position (x y) (input 'exit' to quit): \n";
         // Bước c: Yêu cầu người chơi nhập tọa độ
         int guessX, guessY;
-        cin >> guessX >> guessY;
-        // Kiểm tra nhập hợp lệ
-        // if (guessX < 0 || guessX >= SIZE || guessY < 0 || guessY >= SIZE) {
-        //     cout << "Invalid input! Please enter coordinates between 0 and " << SIZE - 1 << "." << endl;
-        //     round--; // Giảm lượt để không tính điểm
-        //     continue; // Bỏ qua vòng lặp này
-        // }
+        string input;
+        cin >> input;
+        if (input == "exit")
+        {
+            cout << "Exiting the game." << endl;
+            cout << "Your total score is: " << score << endl;
+            return 0;
+        }
+        try {
+            guessX = stoi(input);
+            cin >> guessY;
+        } catch (const invalid_argument& e) {
+            cout << "Invalid input. Please enter valid coordinates." << endl;
+            round--; // Giữ nguyên lượt chơi nếu nhập sai
+            continue;
+        }
 
         cout << "Your guess on the grid:\n";
         for (int i = 0; i < SIZE; i++)
         {
             for (int j = 0; j < SIZE; j++)
             {
-                if (i == targetX && j == targetY)
+                if (i == guessX && j == guessY)
                 {
                     cout << "X ";
                 }
